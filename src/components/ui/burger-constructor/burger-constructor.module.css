@@ -8,8 +8,7 @@
 
 .elements {
   min-height: 100px;
-
-  overflow-y: scroll;
+  overflow-y: auto;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -42,12 +41,15 @@
   align-items: center;
   border-radius: var(--common-border-radius-s);
   background: var(--background-element);
+  width: 536px;
+  height: 80px;
   min-height: 80px;
   font-family: 'Jet Brains Mono';
   font-size: 16px;
   line-height: 24px;
   color: #f2f2f3;
-  margin-left: 44px;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
 .noBunsTop {
@@ -61,7 +63,14 @@
 .element {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  padding-left: 32px;
+  box-sizing: border-box;
+}
+
+.element :global(.constructor-element) {
+  width: 536px;
+  min-height: 80px;
 }
 
 .element:last-child {

@@ -9,6 +9,12 @@ export const ResetPassword: FC = () => {
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
   const [error, setError] = useState<Error | null>(null);
+  const getErrorText = (currentError: Error | null) => {
+    if (!currentError?.message) return undefined;
+    const message = currentError.message.trim();
+    if (!message) return 'Не удалось восстановить пароль';
+    return /[А-Яа-яЁё]/.test(message) ? message : 'Некорректный код из письма';
+  };
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -29,7 +35,7 @@ export const ResetPassword: FC = () => {
 
   return (
     <ResetPasswordUI
-      errorText={error?.message}
+      errorText={getErrorText(error)}
       password={password}
       token={token}
       setPassword={setPassword}
