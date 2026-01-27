@@ -12,19 +12,24 @@ import { OrderStatus } from '@components';
 
 export const OrderInfoUI: FC<OrderInfoUIProps> = memo(({ orderInfo }) => (
   <div className={styles.wrap}>
-    <h3
+    <p
       className={clsx(
         'text',
-        'text_type_main-medium',
-        'pb-3',
+        'text_type_digits-default',
         'pt-10',
-        styles.header
+        'pb-10',
+        styles.number
       )}
+    >
+      #{String(orderInfo.number).padStart(6, '0')}
+    </p>
+    <h3
+      className={clsx('text', 'text_type_main-medium', 'pb-3', styles.header)}
     >
       {orderInfo.name}
     </h3>
     <OrderStatus status={orderInfo.status} />
-    <p className={clsx('text', 'text_type_main-medium', 'pt-15', 'pb=6')}>
+    <p className={clsx('text', 'text_type_main-medium', 'pt-15', 'pb-6')}>
       Состав:
     </p>
     <ul className={clsx(styles.list, 'mb-8')}>
@@ -57,7 +62,7 @@ export const OrderInfoUI: FC<OrderInfoUIProps> = memo(({ orderInfo }) => (
     </ul>
     <div className={styles.bottom}>
       <p className='text text_type_main-default text_color_inactive'>
-        <FormattedDate date={orderInfo.date} />
+        <FormattedDate date={orderInfo.date} /> i-GMT+3
       </p>
       <span
         className={clsx(
