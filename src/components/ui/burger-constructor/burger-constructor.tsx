@@ -19,7 +19,10 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
   onOrderClick,
   closeOrderModal
 }) => (
-  <section className={styles.burger_constructor}>
+  <section
+    className={styles.burger_constructor}
+    data-testid='burger-constructor'
+  >
     {constructorItems.bun ? (
       <div className={clsx(styles.element, 'mb-4', 'mr-4')}>
         <ConstructorElement
@@ -43,7 +46,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
         Выберите булки
       </div>
     )}
-    <ul className={styles.elements}>
+    <ul className={styles.elements} data-testid='constructor-list'>
       {constructorItems.ingredients.length > 0 ? (
         constructorItems.ingredients.map(
           (item: TConstructorIngredient, index: number) => (
@@ -92,7 +95,10 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
         Выберите булки
       </div>
     )}
-    <div className={clsx(styles.total, 'mt-10', 'mr-4')}>
+    <div
+      className={clsx(styles.total, 'mt-10', 'mr-4')}
+      data-testid='order-button'
+    >
       <div className={clsx(styles.cost, 'mr-10')}>
         <p className={clsx('text', styles.text, 'mr-2')}>{price}</p>
         <CurrencyIcon type='primary' />

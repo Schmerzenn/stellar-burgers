@@ -16,6 +16,7 @@ export const OrderDetailsUI: React.FC<OrderDetailsUIProps> = ({
         'mt-2',
         'mb-4'
       )}
+      data-testid='order-number'
     >
       {orderNumber}
     </h2>
